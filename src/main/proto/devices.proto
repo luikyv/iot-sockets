@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option java_outer_classname = "DeviceProto";
+
+message Lamp {
+  bool on = 1;
+}
+
+message AirConditioner {
+  bool on = 1;
+  int32 temperature = 2;
+}
+
+message AudioSystem {
+  bool on = 1;
+  string currentSong = 2;
+}
+
+message Request {
+  optional Lamp lampToSet = 1;
+  optional AirConditioner airConditionerToSet = 2;
+  optional AudioSystem audioSystemToSet = 3;
+  optional bool getLamp = 4;
+  optional bool getAirConditioner = 5;
+  optional bool getAudioSystem = 6;
+}
+
+message Response {
+  optional Lamp lamp = 1;
+  optional AirConditioner airConditioner = 2;
+  optional AudioSystem audioSystem = 3;
+}
